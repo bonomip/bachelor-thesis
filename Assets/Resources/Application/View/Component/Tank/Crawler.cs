@@ -12,7 +12,7 @@ namespace Application.View.Component.Tank
 
         private const float MASS = 50;
         private const float DRAG = 0.05f;
-        private const float ANGULAR_DRAG = 0.05f;
+        private const float ANGULAR_DRAG = 10f;
         
         private const float WHEEL_MASS = 15;
         private const float WHEEL_DRAG = 0.5f;
@@ -45,12 +45,22 @@ namespace Application.View.Component.Tank
 
         public void move(float force)
         {
-            foreach (Rigidbody rb in this.wheels) if( rb != null ) rb.AddTorque(rb.transform.forward * force);
+            if( !this.damaged ) foreach (Rigidbody rb in this.wheels) if( rb != null ) rb.AddTorque(rb.transform.forward * force);
         }
 
         public void brake()
         {
             foreach (Rigidbody rb in this.wheels) if( rb != null ) rb.angularVelocity = Vector3.zero;
+        }
+
+        public void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.tag == Application.AMMUNITION_TAG)
+            {
+                Fire.Create(other.contacts[0].point, this.transform);
+                Debug.Log(this.gameObject.name+" hitten");
+                this.damaged = true;
+            }    
         }
     }
 }

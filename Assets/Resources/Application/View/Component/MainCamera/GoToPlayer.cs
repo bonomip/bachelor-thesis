@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
 
-
 namespace Application.View.Component.MainCamera
 {
     public class GoToPlayer : MonoBehaviour

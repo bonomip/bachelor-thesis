@@ -30,7 +30,7 @@ namespace Application.View.Component.Tank
         {
             if (other.gameObject.tag == Application.AMMUNITION_TAG)
             {
-                //apply damage
+                Fire.Create(other.contacts[0].point, this.transform);
                 Debug.Log("body hitten");
             }
         }

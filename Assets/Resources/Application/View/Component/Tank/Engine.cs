@@ -7,7 +7,7 @@ namespace Application.View.Component.Tank
     {
         private const string NAME = "engine";
         
-        private const float WHEEL_TORQUE_FORCE = 185;
+        private const float WHEEL_TORQUE_FORCE = 200;
 
         LeftCrawler left;
         RightCrawler right;

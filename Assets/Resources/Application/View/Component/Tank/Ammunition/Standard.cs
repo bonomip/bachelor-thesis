@@ -74,6 +74,7 @@ namespace Application.View.Component.Ammunition
         
         private void OnCollisionEnter(Collision collision)
         {
+            if (collision.rigidbody.mass < 1) return;       
             CreateExplosion(collision.contacts[0].point);
             Destroy(this.gameObject);
         }
