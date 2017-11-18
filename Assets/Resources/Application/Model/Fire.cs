@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Application.View.Component.Tank
+namespace Application.Model
 {
-    public class Fire : MonoBehaviour
+    public class Fire
     {
         private const string PREFAB_PATH = "Prefab/fire";
 
@@ -15,9 +15,8 @@ namespace Application.View.Component.Tank
                 position,
                 new Quaternion()
             );
-
             f.transform.parent = parent;
-
+            f.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }

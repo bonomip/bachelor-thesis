@@ -5,19 +5,32 @@ namespace Application.View.Component.Tank
 {
     public class Gun : MonoBehaviour
     {    
-        public const string NAME = "gun";        
-        public const float ROTATE_VELOCITY = 4f;
-        public const float RINCULO = 400f;
+        private const string NAME = "gun";
+
+        private const float MASS = 10f;       
+               
+        private const float RINCULO = 400f;
+        private const float SHOOT_RATE = 3.5f;
+        private float lastShoot;
+        private Transform hole;
+        
+        private const float ROTATE_VELOCITY = 4f;
         private float state, angle;
 
-        public const float SHOOT_RATE = 3.5f;
-        private float lastShoot;
+        private bool damaged = false;
+        private const float ARMOUR = 0.975f;
 
-        private Transform hole;
+        private Main main;
 
         public static Gun attach(Transform parent)
         {
             return parent.Find(NAME).gameObject.AddComponent<Gun>().GetComponent<Gun>();
+        }
+
+        public Gun linkMain(Main m)
+        {
+            this.main = m;
+            return this;
         }
 
         private void Start()
@@ -28,12 +41,14 @@ namespace Application.View.Component.Tank
             this.hole = this.transform.Find("hole");
 
             this.lastShoot = 0;
-        }
 
-        //TODO constrain rotation
+            GetComponent<Rigidbody>().mass = MASS;
+        }
 
         public void rotateUp()
         {
+            if (damaged) return;
+        
             this.angle = -ROTATE_VELOCITY * Time.deltaTime;
 
             if (this.state + this.angle <= -5) return;
@@ -44,8 +59,11 @@ namespace Application.View.Component.Tank
 
             this.angle = 0;
         }
+
         public void rotateDown()
         {
+            if (damaged) return;
+        
             this.angle = ROTATE_VELOCITY * Time.deltaTime; 
             
             if (state+angle >= 5) return;
@@ -59,7 +77,7 @@ namespace Application.View.Component.Tank
 
         public void shoot()
         {
-            if (lastShoot + SHOOT_RATE > Time.time) return;
+            if (lastShoot + SHOOT_RATE > Time.time || this.damaged) return;
             
             lastShoot = Time.time;
 
@@ -69,13 +87,16 @@ namespace Application.View.Component.Tank
                     .AddForce( ( this.transform.position - this.hole.position ).normalized * RINCULO, ForceMode.Impulse);
         }
         
-        private void OnCollisionEnter(Collision other)
+        public void OnCollisionEnter(Collision other)
         {
-            if (other.gameObject.tag == Application.AMMUNITION_TAG)
+           if (other.gameObject.tag == Application.AMMUNITION_TAG)
             {
-                Fire.Create(other.contacts[0].point, this.transform);
-                Debug.Log("gun hitten");
-            }
+                Debug.Log(this.gameObject.name+" hitten");
+                this.damaged = true;
+                this.main.calculateAmmoDamage(this.transform, other, ARMOUR);
+                return;
+            }  
+           this.main.calculateCollisionDamage(other);  
         }
     }
 }

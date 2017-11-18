@@ -5,15 +5,24 @@ namespace Application.View.Component.Tank
 {
     public class Turret : MonoBehaviour
     {
+        private const string NAME = "turret";
 
-        public const string NAME = "turret";
+        private Main main;
 
-        public const float ROTATE_VELOCITY = 15f;
+        private const float ROTATE_VELOCITY = 15f;
         private float state, angle;
+
+        private const float ARMOUR = 0.45f;
 
         public static Turret attach(Transform parent)
         {
             return parent.Find(NAME).gameObject.AddComponent<Turret>().GetComponent<Turret>();
+        }
+
+        public Turret linkMain(Main m)
+        {
+            this.main = m;
+            return this;
         }
 
         private void Start()
@@ -48,13 +57,15 @@ namespace Application.View.Component.Tank
             this.angle = 0;
          }
          
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.gameObject.tag == Application.AMMUNITION_TAG)
+        public void OnCollisionEnter(Collision other)
+        { 
+           if (other.gameObject.tag == Application.AMMUNITION_TAG)
             {
-                Fire.Create(other.contacts[0].point, this.transform);
-                Debug.Log("turret hitten");
+                Debug.Log(this.gameObject.name+" hitten");
+                this.main.calculateAmmoDamage( this.transform, other, ARMOUR);
+                return;
             }
+            this.main.calculateCollisionDamage(other);    
         }
     }
 }

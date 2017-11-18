@@ -7,7 +7,7 @@ namespace Application.Model
     {
         public const string NAME = "model";
 
-        public static Vector3 PLAYER_SPAWN_POSITION = new Vector3( 0f, 0.6f, 0f );
+        public static Vector3 PLAYER_SPAWN_POSITION = new Vector3( 0f, 0.0f, 0f );
 
         public static void attach()
         {
@@ -16,7 +16,7 @@ namespace Application.Model
 
         public void createPlayer()
         {
-            new View.Component.Player( PLAYER_SPAWN_POSITION );
+            new Player( PLAYER_SPAWN_POSITION );
         }
     }
 }

@@ -37,12 +37,8 @@ namespace Application.Controller
             View.Component.MainCamera.FollowPlayer.attach();
             View.PlayerInput.attach();
         }
-        
-        
+
+
         // PLAY VIEW
-        
-        
-      
-        
     }
 }

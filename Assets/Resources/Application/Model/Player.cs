@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-namespace Application.View.Component
+namespace Application.Model
 {
     public class Player
     {     
@@ -21,7 +21,7 @@ namespace Application.View.Component
             p.gameObject.name = Application.PLAYER;
             p.layer = 8;
 
-            p.AddComponent<Tank.Main>();
+            p.AddComponent<View.Component.Tank.Main>();
         }   
     }
 }

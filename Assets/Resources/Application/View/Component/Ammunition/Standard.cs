@@ -3,18 +3,23 @@ using System.Collections;
 
 namespace Application.View.Component.Ammunition
 {
-    public class Standard : MonoBehaviour
+    public class Standard : Ammunition
     {
-
-        
         private const string GUN_FIRE_PREFAB_PATH = "Prefab/gun_fire";
         private const string AMMO_PREFAB_PATH = "Prefab/ammunition";
         private const string EXPLOSION_PREFAB_PATH = "Prefab/explosion";
+        
         private const float AMMO_VELOCITY = 40f;
-        public const float AMMO_DAMAGE = 1000f;
+        
         private const float EXPLOSION_POWER = 100f;
         private const float EXPLOSION_RADIUS = 15f;
         private const float EXPLOSION_UPWARDS = 0.5f;
+    
+        void Start()
+        {
+            this.DAMAGE = 800f;
+        }
+    
     
         public static void Shoot(Vector3 exit_hole_position, Vector3 direction, Transform parent, int layer)
         {
@@ -73,8 +78,7 @@ namespace Application.View.Component.Ammunition
         }
         
         private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.rigidbody.mass < 1) return;       
+        {     
             CreateExplosion(collision.contacts[0].point);
             Destroy(this.gameObject);
         }
