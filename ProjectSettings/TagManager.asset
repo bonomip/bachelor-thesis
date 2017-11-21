@@ -23,8 +23,6 @@ TagManager:
   - tank5
   - tank6
   - tank7
-  - ground
-  - things
   - 
   - 
   - 
@@ -39,6 +37,8 @@ TagManager:
   - 
   - 
   - 
+  - 
+  - target
   m_SortingLayers:
   - name: Default
     uniqueID: 0

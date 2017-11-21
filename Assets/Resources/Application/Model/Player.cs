@@ -21,7 +21,7 @@ namespace Application.Model
             p.gameObject.name = Application.PLAYER;
             p.layer = 8;
 
-            p.AddComponent<View.Component.Tank.Main>();
+            p.AddComponent<Component.Tank.Main>();
         }   
     }
 }

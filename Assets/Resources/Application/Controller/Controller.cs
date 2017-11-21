@@ -28,17 +28,21 @@ namespace Application.Controller
         public void anyKeyPressed()
         {
             Destroy(GameObject.Find(Application.VIEW).GetComponent<View.PressAnyKey>());
-            View.Component.MainCamera.GoToPlayer.attach(this);
+            Component.MainCamera.GoToPlayer.attach(this);
         }
 
-        public void mainCameraOnPlayer(View.Component.MainCamera.GoToPlayer cam)
+        public void mainCameraOnPlayer(Component.MainCamera.GoToPlayer cam)
         {
             Destroy(cam);
-            View.Component.MainCamera.FollowPlayer.attach();
+            Component.MainCamera.FollowPlayer.attach();
             View.PlayerInput.attach();
         }
-
-
+        
+        
         // PLAY VIEW
+        
+        
+      
+        
     }
 }

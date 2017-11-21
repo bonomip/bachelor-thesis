@@ -6,7 +6,6 @@ namespace Application
 
     public class Application : MonoBehaviour
     {
-
         public const string NAME = "application";
 
         public const string MODEL = "model";
