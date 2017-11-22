@@ -11,7 +11,7 @@ namespace Application.Component.Tank
 
         private HingeJoint joint;
 
-        private const float VELOCITY = 30f;
+        private const float VELOCITY = 20f;
         
         private const float ARMOUR = 0.55f;
 

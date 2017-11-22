@@ -12,7 +12,7 @@ namespace Application.Component.Tank
 
         private HingeJoint joint;
 
-        private const float VELOCITY = 15f;
+        private const float VELOCITY = 10f;
         private const float MAX_VELOCITY = 3f;
         
         private const float RINCULO = 650f;
@@ -75,6 +75,7 @@ namespace Application.Component.Tank
         private void OnDestroy()
         {
             Destroy(this.collider);
+            //aggiungere fumo in posizione "hole"
         }
 
         public class GCollider : MonoBehaviour {
@@ -97,9 +98,10 @@ namespace Application.Component.Tank
             private void OnCollisionEnter(Collision other)
             {
                 Debug.Log("Gun hitten");
+                
                 this.main.applyDamage(other, this.transform, 0.95f);
                 
-                if (other.gameObject.tag == Application.AMMUNITION_TAG && this.gun != null)
+                if (other.gameObject.tag == Application.AMMUNITION_TAG && this.gun.enabled)
                 {
                     Debug.Log("Gun Destroy");
                     this.gun.enabled = false;

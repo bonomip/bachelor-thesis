@@ -46,6 +46,7 @@ namespace Application.Component.Tank
             return this;
         }
 
+        //TODO migliorare rotazione mentre in movimento a velocità alta ( 66km/h )
         public void rotateLeft()
         {
             if (this.body.velocity.magnitude * 3.6f <= 2.5f) return;

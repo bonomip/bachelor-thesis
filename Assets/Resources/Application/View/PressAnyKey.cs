@@ -9,7 +9,6 @@ namespace Application.View
     {
 
         private Controller.Controller ctrl;
-        private Text commands;
 
         public static void attach()
         {
@@ -20,7 +19,6 @@ namespace Application.View
         {
             this.ctrl = GameObject.Find(Application.CONTROLLER).GetComponent<Controller.Controller>();
             this.ctrl.createScene();
-            this.commands = GameObject.Find("text_commands").GetComponent<Text>();
         }
         
         // Update is called once per frame
@@ -28,7 +26,6 @@ namespace Application.View
         {
             if (Input.anyKeyDown)
             {
-                Destroy(this.commands.gameObject);
                 this.ctrl.anyKeyPressed();
             } 
         }
