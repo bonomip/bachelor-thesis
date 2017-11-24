@@ -13,12 +13,13 @@ namespace Application.Component.Tank
 
         private const float MAX_HEALT = 1000f;
         private float healt = MAX_HEALT;
+        private bool healtIsLow = false;
+        private const string SMOKE_HOLE = "smoke_hole";
 
         public Body body;
         public Turret turret;
         private Gun gun;
         private Engine engine;
-
 
         private float lastVelocity;
         private float cumulativeMass;
@@ -35,7 +36,6 @@ namespace Application.Component.Tank
 
             this.lastVelocity = 0f;
             this.cumulativeMass = 0f;
-            this.calculateCumulativeMass(this.transform);
         }
         
         //ricorsiva
@@ -58,12 +58,12 @@ namespace Application.Component.Tank
 
         //ricorsiva
         private void calculateCumulativeMass(Transform parent)
-        {
-            if( parent.GetComponent<Rigidbody>() != null ) this.cumulativeMass += parent.GetComponent<Rigidbody>().mass;
+        {        
+            if( parent.gameObject.GetComponent<Rigidbody>() != null ) this.cumulativeMass += parent.gameObject.GetComponent<Rigidbody>().mass;
 
             if ( parent.transform.childCount == 0 ) return;
 
-            for (int i = 0; i < parent.transform.childCount; i++) calculateCumulativeMass(parent.transform.GetChild(i));
+            for (int i = 0; i < parent.transform.childCount; i++) calculateCumulativeMass(parent.GetChild(i));
         }
 
         private void FixedUpdate()
@@ -106,7 +106,11 @@ namespace Application.Component.Tank
             if (this.healt <= 0) return;
 
             // GENERIC COLLISION
-            Debug.LogError(this.lastVelocity * other.rigidbody.mass / this.cumulativeMass);
+            this.cumulativeMass = 0;
+            this.calculateCumulativeMass(this.transform);
+
+            Debug.LogError("Km/h:" + this.lastVelocity * 3.6f);
+            Debug.LogError("Impact force:"+this.lastVelocity * ( other.rigidbody != null ? other.rigidbody.mass : 1000 ) / this.cumulativeMass);
             
             // AMMUNITION COLLISION DAMAGE CALCULATIONS
             if (other.gameObject.tag == Application.AMMUNITION_TAG)
@@ -115,6 +119,8 @@ namespace Application.Component.Tank
                 this.healt -= other.gameObject.GetComponent<Ammunition.Ammunition>().damage * (1 - armour);
                 Debug.LogError(healt);
             }
+
+            if (this.healt <= 350 && !this.healtIsLow) { Smoke.Create(this.turret.transform.Find(SMOKE_HOLE).position, this.turret.transform.Find(SMOKE_HOLE)); this.healtIsLow = true; }
             
             if (this.healt <= 0) this.DestroyTank();
         }
@@ -125,13 +131,14 @@ namespace Application.Component.Tank
             Destroy(this.body);
             Destroy(this.turret);
             Destroy(this.gun);
-            Destroy(this.engine);   
+            Destroy(this.engine);  
         }
 
         private IEnumerator destroyAnimation()
         {
             yield return new WaitForEndOfFrame();
-            //TODO aggiungere esplosioni e fumo
+            //TODO aggiungere fiammata temporanea e fumo random permanente
+            Destroy(this); 
         }
     }
 }

@@ -72,10 +72,15 @@ namespace Application.Component.Tank
                     .AddForce((this.transform.position - this.hole.position).normalized * RINCULO, ForceMode.Impulse);
         }
 
+        private void disable()
+        {
+            Smoke.Create(this.hole.position, this.transform);
+            this.enabled = false;
+        }
+
         private void OnDestroy()
         {
             Destroy(this.collider);
-            //aggiungere fumo in posizione "hole"
         }
 
         public class GCollider : MonoBehaviour {
@@ -104,7 +109,7 @@ namespace Application.Component.Tank
                 if (other.gameObject.tag == Application.AMMUNITION_TAG && this.gun.enabled)
                 {
                     Debug.Log("Gun Destroy");
-                    this.gun.enabled = false;
+                    this.gun.disable();
                 }
             }
         }
