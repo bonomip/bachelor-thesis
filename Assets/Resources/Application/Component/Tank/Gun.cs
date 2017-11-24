@@ -17,6 +17,7 @@ namespace Application.Component.Tank
         
         private const float RINCULO = 650f;
 
+        //TODO cambiare rate
         private const float SHOOT_RATE = 3.5f;
         private float lastShoot;
 
@@ -68,6 +69,8 @@ namespace Application.Component.Tank
 
             Ammunition.Standard.Shoot(this.hole.position, this.hole.position - this.transform.position, this.transform, this.gameObject.layer);
 
+
+            //TODO aggiungere beccheggio ( oscillazione avanti e indietro )
             this.transform.parent.GetComponent<Rigidbody>()
                     .AddForce((this.transform.position - this.hole.position).normalized * RINCULO, ForceMode.Impulse);
         }

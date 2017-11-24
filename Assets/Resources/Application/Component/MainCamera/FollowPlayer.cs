@@ -18,6 +18,8 @@ namespace Application.Component.MainCamera
             this.tank_camera = GameObject.Find(Application.TANK_CAMERA).transform;    
         }
 
+        //TODO non permettere rollio
+
         private void FixedUpdate()
         {
             this.transform.position = Vector3.Lerp(this.transform.position, this.tank_camera.position, 0.15f);

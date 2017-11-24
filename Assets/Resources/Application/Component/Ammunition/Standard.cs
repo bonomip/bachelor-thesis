@@ -90,9 +90,6 @@ namespace Application.Component.Ammunition
         
         private void OnCollisionEnter(Collision collision)
         {
-            //TODO delete this
-            if (collision.gameObject.tag == "Opponent") Debug.Log("Hit target " + Vector3.Distance(collision.contacts[0].point, GameObject.Find("player").transform.Find("body").position) + " meters far! " );
-        
             CreateExplosion(collision.contacts[0].point);
             Destroy(this.gameObject);
         }
