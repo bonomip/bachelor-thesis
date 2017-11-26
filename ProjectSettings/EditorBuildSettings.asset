@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Tesi Tank Ai.unity
+  - enabled: 0
+    path: Assets/Resources/Scene/test.unity
     guid: 81c9bfd929e234c0da83398c7c88a7c3
+  - enabled: 1
+    path: Assets/Resources/Scene/environment.unity
+    guid: c44abdd19e3184e248463e33d7aac072

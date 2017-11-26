@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23513753076614844}
   - component: {fileID: 54743637415122528}
   - component: {fileID: 65405368730495192}
-  m_Layer: 15
+  m_Layer: 0
   m_Name: wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1212561627333282}
   m_LocalRotation: {x: -0.70710695, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.671116, y: -0.25447726, z: 0.46657425}
-  m_LocalScale: {x: 1.332103, y: 1.2464134, z: 1}
+  m_LocalPosition: {x: -1.671116, y: -0.052, z: 0.467}
+  m_LocalScale: {x: 0.2188802, y: 0.2188804, z: 0.1756101}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
