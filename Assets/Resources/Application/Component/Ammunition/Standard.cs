@@ -5,25 +5,25 @@ namespace Application.Component.Ammunition
 {
     public class Standard : Ammunition
     {
-        private const string GUN_FIRE_PREFAB_PATH = "Prefab/gun_fire0";
-        private const string AMMO_PREFAB_PATH = "Prefab/ammunition0";
-        private const string EXPLOSION_PREFAB_PATH = "Prefab/explosion0";
-        private const string FIRE_PREFAB_PATH = "Prefab/fire0";
+        private const string GUN_FIRE_PREFAB_PATH = "Prefab/gun_fire_standard";
+        private const string AMMO_PREFAB_PATH = "Prefab/ammo_standard";
+        private const string EXPLOSION_PREFAB_PATH = "Prefab/explosion_standard";
+        private const string FIRE_PREFAB_PATH = "Prefab/fire_standard";
 
-        private const float VELOCITY = 50f;
+        private const float VELOCITY = 15f;
 
         private void Start()
         {
             this.damage = 1000f;
-            this.explosionPower = 350f;
-            this.explosionRadius = 15f;
-            this.explosionUpwards = 0.5f;
+            this.explosionPower = 35f;
+            this.explosionRadius = 7f;
+            this.explosionUpwards = 0.0f;
         }
 
-        public static void Shoot(Vector3 exit_hole_position, Vector3 direction, Transform parent, int layer)
+        public static GameObject Shoot(Vector3 exit_hole_position, Vector3 direction, Transform parent)
         {
             CreateGunFire(exit_hole_position, parent);
-            CreateAmmo(exit_hole_position, direction, layer);
+            return CreateAmmo(exit_hole_position, direction);
         }
 
         private static void CreateGunFire(Vector3 position, Transform parent)
@@ -37,10 +37,10 @@ namespace Application.Component.Ammunition
 
             );
 
-            Destroy(p, 5f);
+            Destroy(p, 3f);
         }
 
-        private static void CreateAmmo(Vector3 position, Vector3 normal, int layer)
+        private static GameObject CreateAmmo(Vector3 position, Vector3 normal)
         {
             GameObject a = (GameObject)Instantiate(
 
@@ -50,12 +50,13 @@ namespace Application.Component.Ammunition
                 GameObject.Find(Application.VIEW).transform
                 );
                 
-            a.layer = layer;
             a.tag = Application.AMMUNITION_TAG;
             a.GetComponent<Rigidbody>().AddForce(normal * VELOCITY, ForceMode.Impulse);
             a.AddComponent<Standard>();
 
             Destroy(a, 10f);
+            
+            return a;
         }
 
         private void CreateExplosion(Vector3 position)
@@ -68,8 +69,8 @@ namespace Application.Component.Ammunition
                 GameObject.Find(Application.VIEW).transform
             );
                 
-            Destroy(e, 6.5f);
-
+            Destroy(e, 5f);
+            
             foreach ( Collider hit in Physics.OverlapSphere( position, this.explosionRadius ) ) if ( hit.attachedRigidbody != null )
                 hit.attachedRigidbody
                     .AddExplosionForce( this.explosionPower, position, this.explosionRadius, this.explosionUpwards, ForceMode.Impulse );
@@ -83,17 +84,14 @@ namespace Application.Component.Ammunition
                 position,
                 new Quaternion()
             );
-
+            Vector3 s = f.transform.localScale;
             f.transform.parent = parent;
-            f.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+            f.transform.localScale = s;
         } 
         
         private void OnCollisionEnter(Collision collision)
         {
-            //TODO delete this
-            if (collision.gameObject.tag == "Opponent") Debug.Log("Hit target " + Vector3.Distance(collision.contacts[0].point, GameObject.Find("player").transform.Find("body").position) + " meters far! " );
-        
-            CreateExplosion(collision.contacts[0].point);
+            this.CreateExplosion(collision.contacts[0].point);
             Destroy(this.gameObject);
         }
     }
