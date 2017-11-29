@@ -16,7 +16,6 @@ namespace Application.Component.Tank
         private const float VELOCITY = 10f;
         private const float MAX_VELOCITY = 3f;
         
-        //TODO cambiare rate
         private const float SHOOT_RATE = 3f;
         private const float RINCULO = 40f;
         private float lastShoot;
@@ -73,7 +72,7 @@ namespace Application.Component.Tank
 
             Physics.IgnoreCollision(GetComponent<Collider>(), a.GetComponent<Collider>());
 
-            //TODO aggiungere beccheggio ( oscillazione avanti e indietro )
+            //TODO perfezionare rinculo
             this.transform.parent.GetComponent<Rigidbody>()
                     .AddForce((this.transform.position - this.hole.position).normalized * RINCULO, ForceMode.Impulse);
         }

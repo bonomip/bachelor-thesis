@@ -20,7 +20,7 @@ namespace Application.Component.MainCamera
             this.camera = GameObject.Find(Application.TANK_CAMERA).transform;
         }
 
-        //TODO non permettere rollio
+        //TODO fixare camera con i movimenti del tank... tipo quando si capovolge ecc.
 
         private void FixedUpdate()
         {
