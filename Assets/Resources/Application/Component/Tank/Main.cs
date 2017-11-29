@@ -5,8 +5,9 @@ namespace Application.Component.Tank
 {
     public class Main : MonoBehaviour
     {
+        public static float SCALE;
 
-        private const float MASS = 10f;
+        private static float MASS;
         private const float DRAG = 0.05f;
         private const float ANGULAR_DRAG = 0.05f;
         private const float MAX_ANGULAR_VELOCITY = 1f;
@@ -28,6 +29,11 @@ namespace Application.Component.Tank
 
         void Start()
         {
+            SCALE = this.transform.localScale.x;
+            MASS = 12.5f * SCALE;
+
+            Debug.LogError(SCALE);
+            
             DisableCollision.avoidSelfCollision(this.GetComponentsInChildren<Collider>());
             
             attachComponents();
@@ -44,7 +50,7 @@ namespace Application.Component.Tank
 
             this.brake = true;
 
-            Debug.Log(this.cumulativeMass);
+            Debug.LogError(this.cumulativeMass);
         }
 
         private void attachComponents()

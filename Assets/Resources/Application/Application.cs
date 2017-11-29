@@ -33,5 +33,7 @@ namespace Application
         {
             if ( Input.GetKey(KeyCode.Escape) ) UnityEngine.Application.Quit();
         }
+        
+        //TODO laptop box collider
     }
 }

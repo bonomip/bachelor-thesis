@@ -12,11 +12,11 @@ namespace Application.Component.Tank
         private Main main;
         private new CCollider collider;
 
-        private const float MASS = 3.33f;
+        private static float MASS = 4.2f * Main.SCALE;
         private const float DRAG = 0.05f;
         private const float ANGULAR_DRAG = 0.05f;
 
-        private const float WHEEL_MASS = 1f;
+        private static float WHEEL_MASS = 1.25f * Main.SCALE;
         private const float WHEEL_DRAG = 0.05f;
         private const float WHEEL_ANGULAR_DRAG = 0.05f;
 

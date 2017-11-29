@@ -6,6 +6,7 @@ namespace Application.Component.Tank
     public class Gun : MonoBehaviour
     {
         private const string NAME = "gun";
+        private static float MASS = 0.45f * Main.SCALE;
 
         private Main main;
         private new GCollider collider;
@@ -15,10 +16,9 @@ namespace Application.Component.Tank
         private const float VELOCITY = 10f;
         private const float MAX_VELOCITY = 3f;
         
-        private const float RINCULO = 30f;
-
         //TODO cambiare rate
-        private const float SHOOT_RATE = 3.5f;
+        private const float SHOOT_RATE = 3f;
+        private const float RINCULO = 40f;
         private float lastShoot;
 
         private Transform hole;
@@ -39,6 +39,8 @@ namespace Application.Component.Tank
             this.hole = this.transform.Find("hole");
 
             this.joint = GetComponent<HingeJoint>();
+
+            GetComponent<Rigidbody>().mass = MASS;
             
             this.lastShoot = 0;
 

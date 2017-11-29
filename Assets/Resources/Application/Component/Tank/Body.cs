@@ -6,7 +6,8 @@ namespace Application.Component.Tank
 
     public class Body : MonoBehaviour
     {
-        private const float MASS = 10f;
+    
+        private static float MASS = 12.5f * Main.SCALE;
         private const float DRAG = 0.05f;
         private const float ANGULAR_DRAG = 0.05f;
         private const float MAX_ANGULAR_VELOCITY = 1.5f;
@@ -49,14 +50,16 @@ namespace Application.Component.Tank
         //TODO migliorare rotazione mentre in movimento a velocità alta ( 66km/h )
         public void rotateLeft()
         {
-            if (this.body.velocity.magnitude * 3.6f <= 2.5f) return;
-            this.body.AddTorque(this.transform.forward * -TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 70f ) );
+            if (this.body.velocity.magnitude * 3.6f <= 5f) return;
+            Debug.Log(TORQUE_FORCE * (1 - this.body.velocity.magnitude * 3.6f / 150f));
+            this.body.AddTorque(this.transform.forward * -TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 150f ) );
         }
         
         public void rotateRight()
         {
-            if (this.body.velocity.magnitude * 3.6f <= 2.5f) return;
-            this.body.AddTorque(this.transform.forward * TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 70f ) );
+            if (this.body.velocity.magnitude * 3.6f <= 5f) return;
+                        Debug.Log(TORQUE_FORCE * (1 - this.body.velocity.magnitude * 3.6f / 150f));
+            this.body.AddTorque(this.transform.forward * TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 100f ) );
         }
         
         private void OnCollisionEnter(Collision other)

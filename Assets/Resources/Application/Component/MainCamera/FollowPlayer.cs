@@ -6,7 +6,9 @@ namespace Application.Component.MainCamera
 {
     public class FollowPlayer : MonoBehaviour
     {
-        private Transform tank_camera;
+        private Transform camera;
+
+        public float y_offset = 2.1f, z_offset = -10f;
 
         public static void attach()
         {
@@ -15,15 +17,16 @@ namespace Application.Component.MainCamera
 
         void Start()
         {
-            this.tank_camera = GameObject.Find(Application.TANK_CAMERA).transform;    
+            this.camera = GameObject.Find(Application.TANK_CAMERA).transform;
         }
 
         //TODO non permettere rollio
 
         private void FixedUpdate()
         {
-            this.transform.position = Vector3.Lerp(this.transform.position, this.tank_camera.position, 0.15f);
-            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, this.tank_camera.rotation, 0.25f);
+            this.transform.position = Vector3.Lerp(this.transform.position, this.camera.position, 0.1f);
+            this.transform.rotation = Quaternion.Lerp(this.transform.rotation, this.camera.rotation, 0.15f);
+            Vector3 rot = this.transform.rotation.eulerAngles; rot.z = 0; this.transform.rotation = Quaternion.Euler(rot);
         }
     }
 }

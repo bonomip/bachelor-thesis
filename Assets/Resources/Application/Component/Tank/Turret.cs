@@ -7,6 +7,8 @@ namespace Application.Component.Tank
     {
         public const string NAME = "turret";
 
+        private static float MASS = 2.1f * Main.SCALE;
+
         private Main main;
 
         private HingeJoint joint;
@@ -29,6 +31,7 @@ namespace Application.Component.Tank
         private void Start()
         {
             this.joint = GetComponent<HingeJoint>();
+            GetComponent<Rigidbody>().mass = MASS;
         }
 
         public void rotateLeft()

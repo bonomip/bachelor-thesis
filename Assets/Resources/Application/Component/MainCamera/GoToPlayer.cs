@@ -10,7 +10,7 @@ namespace Application.Component.MainCamera
 
         private float time, timer;
         
-        private Transform tank_camera;
+        private Transform camera;
 
         public static void attach(Controller.Controller controller)
         {
@@ -23,7 +23,7 @@ namespace Application.Component.MainCamera
             this.time = 0;
             this.timer = 3f;
 
-            this.tank_camera = GameObject.Find(Application.TANK_CAMERA).transform;
+            this.camera = GameObject.Find(Application.TANK_CAMERA).transform;
         }
 
         void FixedUpdate()
@@ -32,17 +32,17 @@ namespace Application.Component.MainCamera
             
             if (this.time >= this.timer)
             {
-                this.transform.position = Vector3.Lerp(this.transform.position, this.tank_camera.position, 0.05f);
-                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, this.tank_camera.rotation, 0.05f);
+                this.transform.position = Vector3.Lerp(this.transform.position, this.camera.position, 0.05f);
+                this.transform.rotation = Quaternion.Lerp(this.transform.rotation, this.camera.rotation, 0.05f);
 
-                if (Vector3.Distance(this.transform.position, this.tank_camera.position) < 0.05f)
+                if (Vector3.Distance(this.transform.position, this.camera.position) < 0.05f)
                 {
                     ctrl.mainCameraOnPlayer(this);
                 }
                 return;
             }
             
-            this.transform.position = Vector3.Lerp(this.transform.position, this.tank_camera.position, 0.015f);
+            this.transform.position = Vector3.Lerp(this.transform.position, this.camera.position, 0.015f);
         }
     }
 }

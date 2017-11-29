@@ -15,8 +15,8 @@ namespace Application.Component.Ammunition
         private void Start()
         {
             this.damage = 1000f;
-            this.explosionPower = 35f;
-            this.explosionRadius = 7f;
+            this.explosionPower = 25f;
+            this.explosionRadius = 8f;
             this.explosionUpwards = 0.0f;
         }
 
@@ -70,10 +70,16 @@ namespace Application.Component.Ammunition
             );
                 
             Destroy(e, 5f);
-            
-            foreach ( Collider hit in Physics.OverlapSphere( position, this.explosionRadius ) ) if ( hit.attachedRigidbody != null )
-                hit.attachedRigidbody
-                    .AddExplosionForce( this.explosionPower, position, this.explosionRadius, this.explosionUpwards, ForceMode.Impulse );
+
+            ArrayList list = new ArrayList();
+            foreach (Collider hit in Physics.OverlapSphere(position, this.explosionRadius))
+            {
+                if (hit.attachedRigidbody != null && !list.Contains(hit.attachedRigidbody))
+                {
+                    hit.attachedRigidbody.AddExplosionForce(this.explosionPower, position, this.explosionRadius, this.explosionUpwards, ForceMode.Impulse);
+                    list.Add(hit.attachedRigidbody);
+                }
+            }   
         }
 
         public override void CreateFire(Vector3 position, Transform parent)
