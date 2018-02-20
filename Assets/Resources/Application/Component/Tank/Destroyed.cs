@@ -21,11 +21,4 @@ public class Destroyed : MonoBehaviour
     
         //start destroy animation
 	}
-
-	// Update is called once per frame
-	void Update()
-	{
-			
-	}
-
 }

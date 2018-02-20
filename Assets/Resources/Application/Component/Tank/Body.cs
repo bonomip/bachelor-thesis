@@ -31,11 +31,6 @@ namespace Application.Component.Tank
             this.body.maxAngularVelocity = MAX_ANGULAR_VELOCITY;
         }
 
-        public void Update()
-        {
-            Debug.Log(GetComponent<Rigidbody>().velocity.magnitude * 3.6f + " km/h");
-        }
-
         public static Body attach(Transform parent, Main m)
         {
             return parent.Find(NAME).gameObject.AddComponent<Body>().linkMain(m);  
@@ -47,21 +42,23 @@ namespace Application.Component.Tank
             return this;
         }
 
+        public float kmh(){
+            return this.body.velocity.magnitude * 3.6f;
+        }
+
         //TODO migliorare rotazione mentre in movimento
         public void rotateLeft()
         {
             if (this.body.velocity.magnitude * 3.6f <= 5f) return;
-            Debug.Log(TORQUE_FORCE * (1 - this.body.velocity.magnitude * 3.6f / 150f));
             this.body.AddTorque(this.transform.forward * -TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 150f ) );
         }
         
         public void rotateRight()
         {
             if (this.body.velocity.magnitude * 3.6f <= 5f) return;
-                        Debug.Log(TORQUE_FORCE * (1 - this.body.velocity.magnitude * 3.6f / 150f));
-            this.body.AddTorque(this.transform.forward * TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 100f ) );
+            this.body.AddTorque(this.transform.forward * TORQUE_FORCE * ( 1 - this.body.velocity.magnitude * 3.6f / 150f ) );
         }
-        
+
         private void OnCollisionEnter(Collision other)
         {
             Debug.Log("Body hitten");

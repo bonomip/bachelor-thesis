@@ -9,8 +9,8 @@ namespace Application.Component.Tank
 
         public Main main;
         
-        private const float WHEEL_TORQUE_FORCE = 100;
-
+        private const float WHEEL_TORQUE_FORCE = 70;
+        
         Crawler left;
         Crawler right;
 
@@ -33,6 +33,11 @@ namespace Application.Component.Tank
         
         //premettere una velocità maggiore
         
+        public void syncWheels()
+        {
+            this.stop();
+        }
+
         public void moveForward(bool leftPressed, bool rightPressed)
         {
             if(this.left != null) this.left.move (  WHEEL_TORQUE_FORCE  *  ( leftPressed ? 0.5f : 1f ) * ( rightPressed ? 0.5f : 1f ) );
@@ -45,16 +50,16 @@ namespace Application.Component.Tank
             if(this.right != null) this.right.move( - WHEEL_TORQUE_FORCE * 0.70f * ( leftPressed ? 0.5f : 1f ) * ( rightPressed ? 0.5f : 1f ) );
         }
 
-        public void rotateLeft()
+        public void rotateLeft(float kmh)
         {   
-            if(this.left != null) this.left.move ( - WHEEL_TORQUE_FORCE );
-            if(this.right != null) this.right.move( WHEEL_TORQUE_FORCE   );
+            if(this.left != null) this.left.move ( - WHEEL_TORQUE_FORCE * (1 - kmh / 35));
+            if(this.right != null) this.right.move( WHEEL_TORQUE_FORCE * (1 - kmh / 35) );
         }
         
-        public void rotateRight()
+        public void rotateRight(float kmh)
         {
-            if(this.left != null) this.left.move ( WHEEL_TORQUE_FORCE   );
-            if(this.right != null) this.right.move( - WHEEL_TORQUE_FORCE );
+            if(this.left != null) this.left.move ( WHEEL_TORQUE_FORCE * (1 - kmh / 35));
+            if(this.right != null) this.right.move( - WHEEL_TORQUE_FORCE * ( 1 - kmh / 35));
         }
         
         public void stop()

@@ -103,8 +103,8 @@ namespace Application.Component.Tank
 
                 if (!keyInputs[0] && !keyInputs[2])
                 {
-                    if (keyInputs[1] && !keyInputs[3]) this.engine.rotateLeft();
-                    if (!keyInputs[1] && keyInputs[3]) this.engine.rotateRight();
+                    if (keyInputs[1] && !keyInputs[3]) this.engine.rotateLeft(this.body.kmh());
+                    if (!keyInputs[1] && keyInputs[3]) this.engine.rotateRight(this.body.kmh());
                 }
             }
             
