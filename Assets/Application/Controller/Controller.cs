@@ -6,6 +6,7 @@ namespace Application.Controller
     public class Controller : MonoBehaviour
     {
         private Model.Model model;
+        private GameObject[] opponents;
 
         public static void attach()
         {
@@ -23,6 +24,9 @@ namespace Application.Controller
         public void populateScene()
         {
             this.model.createPlayer();
+
+            this.opponents = new GameObject[1];
+            this.opponents[0] = this.model.spawnOpponent(new  Vector3(-1.25f, 60f, 145f));
         }
 
         public void anyKeyPressed()
@@ -31,11 +35,16 @@ namespace Application.Controller
             Component.MainCamera.GoToPlayer.attach(this);
         }
 
-        public void mainCameraOnPlayer(Component.MainCamera.GoToPlayer cam)
+        public void startGame(Component.MainCamera.GoToPlayer cam)
         {
             Destroy(cam);
             Component.MainCamera.FollowPlayer.attach();
             View.PlayerInput.attach();
+
+            //use this to give AI to tank
+            foreach(GameObject o in this.opponents){
+                o.AddComponent<Component.TankAi.ProvaMira>();
+            }
         }
         
         

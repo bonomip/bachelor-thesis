@@ -37,7 +37,7 @@ namespace Application.Component.MainCamera
 
                 if (Vector3.Distance(this.transform.position, this.camera.position) < 0.05f)
                 {
-                    ctrl.mainCameraOnPlayer(this);
+                    ctrl.startGame(this);
                 }
                 return;
             }

@@ -6,7 +6,6 @@ namespace Application.View
     public class PlayerInput : MonoBehaviour
     {
         private Component.Tank.Main player;
-        private Component.Tank.Main opponent;
 
         private bool[] inputs;
         private KeyCode[] keys = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.I, KeyCode.P,  KeyCode.O, KeyCode.L, KeyCode.Space };
@@ -20,7 +19,6 @@ namespace Application.View
         {   
             this.inputs = new bool[this.keys.Length];
             this.player = GameObject.Find(Application.PLAYER).GetComponent<Component.Tank.Main>();
-            this.opponent = GameObject.Find("opponent").GetComponent<Component.Tank.Main>();
         }
 
         void Update()

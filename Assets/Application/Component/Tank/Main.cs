@@ -19,7 +19,7 @@ namespace Application.Component.Tank
 
         public Body body;
         public Turret turret;
-        private Gun gun;
+        public Gun gun;
         private Engine engine;
 
         private bool brake;

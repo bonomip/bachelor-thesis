@@ -18,5 +18,9 @@ namespace Application.Model
         {
             new Player();
         }
+
+        public GameObject spawnOpponent(Vector3 position){
+            return new Opponent(position).getGameObject();
+        }
     }
 }

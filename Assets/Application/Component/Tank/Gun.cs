@@ -46,6 +46,10 @@ namespace Application.Component.Tank
             this.collider = GCollider.attach(this.gameObject, this, this.main);
         }
 
+        public Transform getExitHole(){
+            return this.hole;
+        }
+
         public void rotateUp()
         {
             if (this.joint.spring.targetPosition <= this.joint.limits.min) return;

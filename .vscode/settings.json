@@ -51,6 +51,16 @@
         "Obj/":true,
         "ProjectSettings/":true,
         "temp/":true,
-        "Temp/":true
+        "Temp/":true,
+        "demo*":true,
+        "UnityPackageManager":true,
+        "**/00Allosaurus":true,
+        "**/01candy":true,
+        "**/02pencil":true,
+        "**/03soldier":true,
+        "**/04veicles":true,
+        "**/05barrels":true,
+        "**/06HomeStuff":true,
+        "**.md":true,
     }
 }
