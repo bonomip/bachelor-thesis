@@ -25,8 +25,9 @@ namespace Application.Controller
         {
             this.model.createPlayer();
 
-            this.opponents = new GameObject[1];
+            this.opponents = new GameObject[2];
             this.opponents[0] = this.model.spawnOpponent(new  Vector3(-1.25f, 60f, 145f));
+            this.opponents[0] = this.model.spawnOpponent(new  Vector3(2.25f, 60f, 105f));
         }
 
         public void anyKeyPressed()

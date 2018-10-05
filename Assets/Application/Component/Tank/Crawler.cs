@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 
 namespace Application.Component.Tank
@@ -20,9 +21,9 @@ namespace Application.Component.Tank
         private const float WHEEL_DRAG = 0.05f;
         private const float WHEEL_ANGULAR_DRAG = 0.05f;
 
-        private const float WHEEL_MAX_ANGULAR_VELOCITY = 45f;
+        public const float WHEEL_MAX_ANGULAR_VELOCITY = 45f;
 
-        private readonly string[] wheelNames = { "0", "1", "2", "3", "4", "4.5", "0.5" };
+        private readonly string[] wheelNames = { "0", "1", "2" };
 
         private const string R_NAME = "rCrawler";
         private const string L_NAME = "lCrawler";

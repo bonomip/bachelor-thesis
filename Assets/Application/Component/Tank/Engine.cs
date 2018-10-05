@@ -9,7 +9,7 @@ namespace Application.Component.Tank
 
         public Main main;
         
-        private const float WHEEL_TORQUE_FORCE = 70;
+        public const float WHEEL_TORQUE_FORCE = 70;
         
         Crawler left;
         Crawler right;
@@ -30,8 +30,6 @@ namespace Application.Component.Tank
             this.left = Crawler.attach(true, this.transform, this.main);
             this.right = Crawler.attach(false, this.transform, this.main);
         }
-        
-        //premettere una velocità maggiore
         
         public void syncWheels()
         {
