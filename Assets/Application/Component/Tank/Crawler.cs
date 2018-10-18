@@ -83,7 +83,7 @@ namespace Application.Component.Tank
             {
                 if (other.gameObject.tag == Application.AMMUNITION_TAG)
                 {
-                    GameObject w = (GameObject)Instantiate(
+                    Instantiate(
                         Resources.Load(PREFAB_PATH),
                         this.transform.position,
                         new Quaternion(),

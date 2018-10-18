@@ -24,7 +24,6 @@ namespace Application.Controller
         public void populateScene()
         {
             this.model.createPlayer();
-
             this.opponents = new GameObject[2];
             this.opponents[0] = this.model.spawnOpponent(new  Vector3(-1.25f, 60f, 145f));
             this.opponents[0] = this.model.spawnOpponent(new  Vector3(2.25f, 60f, 105f));
@@ -41,18 +40,10 @@ namespace Application.Controller
             Destroy(cam);
             Component.MainCamera.FollowPlayer.attach();
             View.PlayerInput.attach();
-
-            //use this to give AI to tank
-            foreach(GameObject o in this.opponents){
-                o.AddComponent<Component.TankAi.ProvaMira>();
-            }
         }
-        
-        
-        // PLAY VIEW
-        
-        
-      
-        
+
+        public void lose(){
+            
+        }    
     }
 }

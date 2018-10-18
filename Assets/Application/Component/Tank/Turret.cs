@@ -6,15 +6,10 @@ namespace Application.Component.Tank
     public class Turret : MonoBehaviour
     {
         public const string NAME = "turret";
-
-        private static float MASS = 2.1f * Main.SCALE;
-
+        public static float MASS = 2.1f * Main.SCALE;
         private Main main;
-
         private HingeJoint joint;
-
         private const float VELOCITY = 20f;
-        
         private const float ARMOUR = 0.55f;
 
         public static Turret attach(Transform parent, Main m)

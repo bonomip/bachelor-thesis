@@ -18,6 +18,7 @@ namespace Application
         public const string TANK_CAMERA = "tank_camera";
         
         public const string AMMUNITION_TAG = "ammunition";
+        public const string HAND_TAG = "hand";
         
 
         // Use this for initialization

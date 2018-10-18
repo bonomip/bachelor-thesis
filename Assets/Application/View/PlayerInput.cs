@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Application.View
 {
@@ -8,7 +9,7 @@ namespace Application.View
         private Component.Tank.Main player;
 
         private bool[] inputs;
-        private KeyCode[] keys = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.I, KeyCode.P,  KeyCode.O, KeyCode.L, KeyCode.Space };
+        private KeyCode[] keys = { KeyCode.W, KeyCode.A, KeyCode.S, KeyCode.D, KeyCode.I, KeyCode.P,  KeyCode.O, KeyCode.L, KeyCode.Space};
         
         public static void attach()
         {
@@ -23,7 +24,21 @@ namespace Application.View
 
         void Update()
         {
-            for (int i = 0; i < this.keys.Length; i++) this.inputs[i] = Input.GetKey(this.keys[i]);
+            try 
+            { 
+                if(Input.GetKey(KeyCode.R))
+                { 
+                    this.player.toBrake();
+                    PlayerReset.attach();
+                    Destroy(this);
+                }
+                
+                for (int i = 0; i < this.keys.Length; i++) this.inputs[i] = Input.GetKey(this.keys[i]);
+            }
+            catch (Exception e)
+            {
+                        Debug.LogException(e, this);
+            }
         }
 
         private void FixedUpdate()

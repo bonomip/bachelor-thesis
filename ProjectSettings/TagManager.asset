@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Opponent
   - ammunition
+  - hand
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - tank0
-  - tank1
+  - player
+  - turret
   - tank2
   - tank3
   - tank4

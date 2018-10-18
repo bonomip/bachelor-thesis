@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 135080255517994684}
   - component: {fileID: 54122172199309310}
   - component: {fileID: 153572768438637974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4517943829494500}
   - component: {fileID: 33608961623790708}
   - component: {fileID: 23138707042793856}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: right_detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4007577011295438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 135057621096276558}
   - component: {fileID: 54624513020134522}
   - component: {fileID: 153763724843109170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 135852373118282274}
   - component: {fileID: 54017965743903508}
   - component: {fileID: 153873525975813814}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,9 +116,9 @@ GameObject:
   - component: {fileID: 135513525866813282}
   - component: {fileID: 54257992510320472}
   - component: {fileID: 153364747790982326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 135408779519369664}
   - component: {fileID: 54219500875440762}
   - component: {fileID: 153617398560923660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4.5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,9 +154,9 @@ GameObject:
   - component: {fileID: 135969099954948880}
   - component: {fileID: 54331402447156378}
   - component: {fileID: 153707899078948242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4.5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,9 +174,9 @@ GameObject:
   - component: {fileID: 54030506031510492}
   - component: {fileID: 138974651667255936}
   - component: {fileID: 65286155806683610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rCrawler
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 4321828369233546}
   - component: {fileID: 33733655880917772}
   - component: {fileID: 23599125810575742}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret_detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4700004853128892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: smoke_hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,9 +226,9 @@ GameObject:
   - component: {fileID: 135345051096159116}
   - component: {fileID: 54719185582679504}
   - component: {fileID: 153781350473409828}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 4946071326727314}
   - component: {fileID: 33130198782092920}
   - component: {fileID: 23559493469860734}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Object328
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,9 +263,9 @@ GameObject:
   - component: {fileID: 135652014091378458}
   - component: {fileID: 54700321565200106}
   - component: {fileID: 153243200530221206}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,9 +283,9 @@ GameObject:
   - component: {fileID: 54127103238633468}
   - component: {fileID: 138486799397341032}
   - component: {fileID: 65233855350046012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: lCrawler
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,9 +302,9 @@ GameObject:
   - component: {fileID: 135878288764609162}
   - component: {fileID: 54797128927961118}
   - component: {fileID: 153470689333747156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 0.5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -317,7 +317,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4769220800385588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,9 +337,9 @@ GameObject:
   - component: {fileID: 135215533553646504}
   - component: {fileID: 54975303105565028}
   - component: {fileID: 153445049857343774}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 4
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,9 +357,9 @@ GameObject:
   - component: {fileID: 64795380972869526}
   - component: {fileID: 33092514873254916}
   - component: {fileID: 23056417235210830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -376,9 +376,9 @@ GameObject:
   - component: {fileID: 135377021487391732}
   - component: {fileID: 54726314824435660}
   - component: {fileID: 153105745872302180}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 0.5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -396,9 +396,9 @@ GameObject:
   - component: {fileID: 135886345516238164}
   - component: {fileID: 54366133716566520}
   - component: {fileID: 153602358182841808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,9 +412,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4677865917084670}
   - component: {fileID: 54170758082008244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4319726149086628}
   - component: {fileID: 33314869775967900}
   - component: {fileID: 23654140724127302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: front_detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,9 +449,9 @@ GameObject:
   - component: {fileID: 64190054453429678}
   - component: {fileID: 54111225458574342}
   - component: {fileID: 59123229022462096}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,7 +466,7 @@ GameObject:
   - component: {fileID: 4440694301329942}
   - component: {fileID: 33487820081529930}
   - component: {fileID: 23512885304863166}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: left_detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,9 +486,9 @@ GameObject:
   - component: {fileID: 135055010715514988}
   - component: {fileID: 54777995978731154}
   - component: {fileID: 153137016124490746}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -506,9 +506,9 @@ GameObject:
   - component: {fileID: 135851795904056846}
   - component: {fileID: 54075713546644886}
   - component: {fileID: 153981551986274786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -526,9 +526,9 @@ GameObject:
   - component: {fileID: 23433426988699160}
   - component: {fileID: 33533614543474458}
   - component: {fileID: 59335626015997636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: turret
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -541,8 +541,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4318970332063690}
-  - component: {fileID: 20371257692846630}
-  m_Layer: 0
+  - component: {fileID: 114340479813677788}
+  m_Layer: 8
   m_Name: tank_camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,9 +557,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4291513333207504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: engine
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -886,8 +886,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686082594797970}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.25, y: 59.32, z: 127.18}
+  m_LocalRotation: {x: -0, y: -0.9439665, z: -0, w: 0.33004132}
+  m_LocalPosition: {x: 51.3, y: 0.3, z: -1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4019644595332596}
@@ -896,7 +896,7 @@ Transform:
   - {fileID: 4291513333207504}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -141.457, z: 0}
 --- !u!4 &4700004853128892
 Transform:
   m_ObjectHideFlags: 1
@@ -983,41 +983,6 @@ Transform:
   m_Father: {fileID: 4314740083248378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20371257692846630
-Camera:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1889088722688618}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
 --- !u!23 &23056417235210830
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -2210,7 +2175,7 @@ HingeJoint:
   m_Anchor: {x: -0.3, y: 0, z: -0.65}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.2444823, y: 0.13107105, z: 0.21628018}
+  m_ConnectedAnchor: {x: 0.24449502, y: 0.13106902, z: 0.21627808}
   m_UseSpring: 1
   m_Spring:
     spring: 100000
@@ -2300,6 +2265,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 0.2, z: 0.4}
   m_Center: {x: 0.09213734, y: -0.00000001490116, z: 0.42}
+--- !u!114 &114340479813677788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1889088722688618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ae3e78e086ef4aa7b0cf7c3fce7f77f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135055010715514988
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -2517,7 +2493,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.8259952, y: 0.009000419, z: 0.39000323}
+  m_ConnectedAnchor: {x: -1.8259872, y: 0.008977173, z: 0.39000103}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2611,7 +2587,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.6711206, y: 0.00052273273, z: 0.46657133}
+  m_ConnectedAnchor: {x: -1.6710936, y: 0.00050985813, z: 0.46656924}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2705,7 +2681,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.72004354, y: 0.00907254, z: 0.46657085}
+  m_ConnectedAnchor: {x: -0.72002625, y: 0.009059308, z: 0.4665686}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2799,7 +2775,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.0142479, y: 0.009072183, z: 0.46657073}
+  m_ConnectedAnchor: {x: 1.0142488, y: 0.009077666, z: 0.46656865}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2893,7 +2869,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.7645258, y: 0.0005224943, z: 0.46657145}
+  m_ConnectedAnchor: {x: 1.7645494, y: 0.0005354881, z: 0.4665692}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2987,7 +2963,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.843009, y: 0.0010002851, z: 0.39000374}
+  m_ConnectedAnchor: {x: -1.8430048, y: 0.001001358, z: 0.39000165}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3081,7 +3057,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.8140663, y: 0.0005226135, z: 0.46657133}
+  m_ConnectedAnchor: {x: -0.81407166, y: 0.0005224943, z: 0.46656924}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3175,7 +3151,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.050284468, y: 0.0005226135, z: 0.46657133}
+  m_ConnectedAnchor: {x: 0.050284594, y: 0.00051665306, z: 0.4665693}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3269,7 +3245,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.9730091, y: 0.009000419, z: 0.39000317}
+  m_ConnectedAnchor: {x: 1.9729835, y: 0.009026645, z: 0.3900011}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3363,7 +3339,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.97199, y: 0.0010002851, z: 0.3900038}
+  m_ConnectedAnchor: {x: 1.9719976, y: 0.0010102987, z: 0.3900016}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3457,7 +3433,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.8713001, y: 0.009072183, z: 0.46657073}
+  m_ConnectedAnchor: {x: 1.8713032, y: 0.0090640765, z: 0.46656865}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3551,7 +3527,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.92022926, y: 0.0005226135, z: 0.46657145}
+  m_ConnectedAnchor: {x: 0.9202072, y: 0.00054073334, z: 0.4665693}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3645,7 +3621,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -1.5643381, y: 0.00907254, z: 0.46657085}
+  m_ConnectedAnchor: {x: -1.5643386, y: 0.00909674, z: 0.4665686}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3739,7 +3715,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0.255}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.14989917, y: 0.009072183, z: 0.46657073}
+  m_ConnectedAnchor: {x: 0.14989433, y: 0.009083508, z: 0.46656865}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

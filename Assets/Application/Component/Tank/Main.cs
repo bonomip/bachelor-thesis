@@ -7,7 +7,7 @@ namespace Application.Component.Tank
     {
         public static float SCALE;
 
-        private static float MASS;
+        public static float MASS;
         private const float DRAG = 0.05f;
         private const float ANGULAR_DRAG = 0.05f;
         private const float MAX_ANGULAR_VELOCITY = 1f;
@@ -16,6 +16,7 @@ namespace Application.Component.Tank
         private float healt = MAX_HEALT;
         private bool healtIsLow = false;
         private const string SMOKE_HOLE = "smoke_hole";
+        private bool reset;
 
         public Body body;
         public Turret turret;
@@ -31,9 +32,7 @@ namespace Application.Component.Tank
         {
             SCALE = this.transform.localScale.x;
             MASS = 12.5f * SCALE;
-
-            Debug.LogError(SCALE);
-            
+        
             DisableCollision.avoidSelfCollision(this.GetComponentsInChildren<Collider>());
             
             attachComponents();
@@ -49,8 +48,6 @@ namespace Application.Component.Tank
             this.calculateCumulativeMass(this.transform);
 
             this.brake = true;
-
-            Debug.LogError(this.cumulativeMass);
         }
 
         private void attachComponents()
@@ -61,7 +58,6 @@ namespace Application.Component.Tank
             this.engine = Engine.attach(this.transform, this);
         }
 
-        //ricorsiva
         private void calculateCumulativeMass(Transform parent)
         {        
             if( parent.gameObject.GetComponent<Rigidbody>() != null ) this.cumulativeMass += parent.gameObject.GetComponent<Rigidbody>().mass;
@@ -77,9 +73,15 @@ namespace Application.Component.Tank
             if (this.brake) this.engine.stop();
         }
 
+//il problema dell cazzo ai cinglati quando si curva a velocità elevata è forse causato dal tipo di terreno della scrivania, dico questo perchè
+//sul pavimento la cosa non succede
+
+        public void toBrake(){
+            this.brake = true;
+        }
+
         public void input(bool[] keyInputs)
         {
-
             this.brake = false;
 
             if (!keyInputs[1] && !keyInputs[3] && !keyInputs[0] && !keyInputs[2]) this.brake = true;
@@ -141,14 +143,27 @@ namespace Application.Component.Tank
             if (this.healt <= 0) this.DestroyTank();
         }
 
-        private void DestroyTank()
+        public void DestroyTank()
         {
+            
             Destroy(this.body);
             Destroy(this.turret);
             Destroy(this.gun);
             Destroy(this.engine);
             Destroyed.attach(this.gameObject);
+            GameObject.Find(Application.CONTROLLER).GetComponent<Controller.Controller>().lose();
             Destroy(this);
+        }
+
+        public void setColliderStatus(bool active, Transform parent){
+            foreach(Collider c in parent.gameObject.GetComponents<Collider>())
+                c.enabled = active;
+            foreach(Rigidbody r in parent.gameObject.GetComponents<Rigidbody>())
+                r.velocity = Vector3.zero;
+            
+
+            for (int i = 0; i < parent.transform.childCount; i++) setColliderStatus(active, parent.GetChild(i));
+
         }
     }
 }

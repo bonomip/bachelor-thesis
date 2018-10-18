@@ -6,7 +6,7 @@ namespace Application.Component.Tank
     public class Gun : MonoBehaviour
     {
         private const string NAME = "gun";
-        private static float MASS = 0.45f * Main.SCALE;
+        public static float MASS = 0.45f * Main.SCALE;
 
         private Main main;
         private new GCollider collider;

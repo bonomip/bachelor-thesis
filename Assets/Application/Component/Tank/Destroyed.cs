@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
+
+namespace Application.Component.Tank
+{
+
 public class Destroyed : MonoBehaviour
 {
 
@@ -18,7 +22,43 @@ public class Destroyed : MonoBehaviour
             rb.drag = 1;
             rb.angularDrag = 1;
         }
+        GameObject e = (GameObject) Instantiate(
 
-        //start destroy animation
+            Resources.Load("Prefab/smoke"),
+            this.transform.position,
+            Quaternion.identity,
+            this.transform
+        );
+        e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        e = (GameObject) Instantiate(
+
+            Resources.Load("Prefab/smoke"),
+            this.transform.position + new Vector3(0.6f, -0.2f, 0.1f),
+            Quaternion.identity,
+            this.transform
+        );
+                e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        e = (GameObject) Instantiate(
+
+            Resources.Load("Prefab/smoke"),
+            this.transform.position + new Vector3(-0.1f, -0.2f, -0.6f),
+            Quaternion.identity,
+            this.transform
+        );
+                e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+        e = (GameObject) Instantiate(
+
+            Resources.Load("Prefab/smoke"),
+            this.transform.position + new Vector3(-0.6f, -0.2f, -0.3f),
+            Quaternion.identity,
+            this.transform
+        );
+                e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+
+
     }
+}
 }

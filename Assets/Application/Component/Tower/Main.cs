@@ -26,8 +26,16 @@ public class Main : MonoBehaviour {
 		Debug.Log("Tower Hitten");
 		if(other.gameObject.tag == Application.AMMUNITION_TAG){
 			other.gameObject.GetComponent<Ammunition.Ammunition>().CreateFire(other.contacts[0].point, hitten);
+			this.destroy();
 		}
 	}
+
+	private void destroy(){
+		Destroy(head);
+		Destroy(root);
+		Destroy(this);
+	}
+
 }
 
 }
