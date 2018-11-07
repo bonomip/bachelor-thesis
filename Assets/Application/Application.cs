@@ -20,6 +20,8 @@ namespace Application
         public const string AMMUNITION_TAG = "ammunition";
         public const string HAND_TAG = "hand";
         
+        public Vector3 CAM_START_POS = new Vector3(0, 100, 130);
+        public Vector3 CAM_START_ROT = new Vector3(90, 0, 0);
 
         // Use this for initialization
         void Start()

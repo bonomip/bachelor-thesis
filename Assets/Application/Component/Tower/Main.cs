@@ -26,6 +26,7 @@ public class Main : MonoBehaviour {
 		Debug.Log("Tower Hitten");
 		if(other.gameObject.tag == Application.AMMUNITION_TAG){
 			other.gameObject.GetComponent<Ammunition.Ammunition>().CreateFire(other.contacts[0].point, hitten);
+			GameObject.Find(Application.CONTROLLER).GetComponent<Controller.Controller>().turretDestroyed();
 			this.destroy();
 		}
 	}

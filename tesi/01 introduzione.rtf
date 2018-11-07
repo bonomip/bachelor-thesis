@@ -1,0 +1,39 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww12340\viewh15960\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 1.0 Introduzione: Sviluppo di un moderno videogioco 3D\
+\
+1.1 I videogiochi\
+\
+I primi videogiochi creati negli anni 50 erano composti interamente da hardware, oggi invece sono eseguiti su personal computer e console specializzate utilizzando software poter offrire esperienze di giochi diversificate. Questo \'e8 stato reso possibile grazie al rapido miglioramento dei microprocessori, e sebbene l\'92industria videoludica venga ancora considerata giovane e immatura oggi i videogiochi sono un business multimilionario nonch\'e9 un fenomeno culturale di massa in continua espansione.\
+\
+I videogiochi possono essere raggruppati in categorie o \'93generi\'94, dai solitari ai MMORPG (massively multiplayer online role-playing games) ed \'e8 possibile eseguirli virtualmente su qualsiasi dispositivo dotato di microchip: dal proprio personal computer, allo smartphone cos\'ec come su differenti console specializzate (palmari o connesse alla tv domestica) quest\'92ultime rappresentano l\'92avanguardia delle soluzioni tecnologiche per i videogiochi.\
+\
+L\'92incredibile potenza computazione disponibile sulle odierne piattaforme di gioco ha aumentato notevolmente la complessit\'e0 del software. Ovviamente questo software deve essere creato da qualcuno e ci\'f2 ha aumentato considerevolmente la grandezza dei team e dei costi di sviluppo. Coscienziosi di ci\'f2 i team di sviluppo sono sempre alla ricerca di metodi per creare in modo pi\'f9 efficiente i loro prodotti, prendendo vantaggio di software riutilizzabile e middleware.\
+\
+1.2 Game engine\
+\
+Il game engine \'e8 uno strumento che si propone di fornire una soluzione ai problemi comuni nello sviluppo di ampie classi di videogame fornendo al team di sviluppo strumenti per scrivere e pianificare un gioco velocemente e semplicemente.\
+\
+Il termine game engine sorse nella met\'e0 degli anni 90\'92 per riferirsi ai giochi FPS (sparatutto in prima persona) come il popolare Doom prodotto dalla id Software. Doom \'e8 stato progettato definendo una marcata separazione tra i componenti principali del software (il sistema di rendering tridimensionale, il sistema di rivelazione delle collisioni, il sistema audio\'85 ) e gli assets grafici, il mondo di gioco, e le regole di gioco che compongono il gameplay. Il valore di questa separazione divent\'f2 evidente quando gli sviluppatori iniziarono a creare nuovi prodotti partendo da giochi gi\'e0 esistenti modificandone i contenuti artistici, le mappe di gioco, le armi, i personaggi con modifiche minimali all\'92 \'93engine\'94 software.\
+\
+Oggi gli sviluppatori di videogiochi possono autorizzare un game engine e riutilizzare significative porzioni del suo codice allo scopo di creare videogiochi. Questa pratica richiede un considerabile investimento nella riprogettazione del software, ma risulta essere una scelta pi\'f9 economica rispetto allo sviluppo dei componenti principali dell\'92engine.\
+Se guardiamo quali game engine sono stati utilizzati nei giochi degli ultimi anni notiamo subito che la scelta adottata dagli sviluppatori \'e8 nel riprogettare un game engine esistente anzich\'e9 crearne uno nuovo. Ad esempio la famosa serie \'93Call of Duty\'94 utilizza il game engine \'93IW engine\'94 basato su \'93id Tech 3\'94 sviluppato dalla id Software nel 1999 per il videogioco \'93Quake III Arena\'94.\
+\
+I game engine sono spesso specifici per un genere di gioco, un engine prodotto per uno sparatutto in prima persona (FPS) sar\'e0 molto differente rispetto ad uno progettato per un gioco di massa online ( MMOG ). Comunque ci sono anche molte similitudini, ad esempio tutti i giochi 3D indipendentemente dal genere richiedono dei sistemi di ricezione di input a basso livello, sistemi di renderizzazione testi, sistemi audio\'85 Quindi sebbene \'93Unreal Engine\'94 sia stato progettato per gli sparatutto in prima persona esso \'e8 stato anche utilizzato con successo per la produzione di giochi dai svariati generi trai i quali spicca lo sparatutto in terza persona \'93Gears of War\'94 by Epic Games. \
+\
+1.3 Assets\
+\
+Gli assets comprendono tutto ci\'f2 che non \'e8 puro codice, modelli, animazioni, texture, livelli di gioco, suoni, video, ma anche il testo di eventuali dialoghi oppure, a volte, gli shader sono asset usati dal codice per produrre l\'92esperienza audio visiva presenta al giocatore. Ogni videogioco moderno comprende un certo numero di assets, prodotti da artisti digitali. \
+\
+Ad esempio lo skybox \'e8 un metodo per la creazione dello sfondo, quando usato il livello di gioco viene incluso in un cuboide e Il cielo cos\'ec come altri oggetti irraggiungibili vengono proiettati sulle 6 facce del cubo.\
+Oggetti invece che costituiscono la maggior parte dell\'92architettura della mappa ( ad esempio una scrivania o un palazzo) vengono realizzati tramite mesh statiche, in altre parole da collezioni di vertici, angoli e facce che definiscono un poliedro, i cui vertici non sono animati.\
+I Colliders invece definiscono la forma dell\'92oggetto al fine di calcolare le collisioni fisiche, essi sono invisibili e non necessariamente devono avere la stessa forma della mesh dell\'92oggetto di cui fanno parte.\
+Esplosioni, fumo, polvere e pi\'f9 in generale sistemi altamente caotici vengono riprodotti tramite sistemi di paticelle, una tecnica che simula questi fenomeni utilizzando un grande numero di piccoli modelli 3D o sprites.\
+\
+\
+\
+}
