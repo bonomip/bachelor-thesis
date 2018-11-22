@@ -48,16 +48,10 @@ namespace Application.Component.Tank
             if(this.right != null) this.right.move( - WHEEL_TORQUE_FORCE * 0.70f * ( leftPressed ? 0.5f : 1f ) * ( rightPressed ? 0.5f : 1f ) );
         }
 
-        public void rotateLeft(float kmh)
+        public void rotate(float mgn, int verse)
         {   
-            if(this.left != null) this.left.move ( - WHEEL_TORQUE_FORCE * (1 - kmh / 35));
-            if(this.right != null) this.right.move( WHEEL_TORQUE_FORCE * (1 - kmh / 35) );
-        }
-        
-        public void rotateRight(float kmh)
-        {
-            if(this.left != null) this.left.move ( WHEEL_TORQUE_FORCE * (1 - kmh / 35));
-            if(this.right != null) this.right.move( - WHEEL_TORQUE_FORCE * ( 1 - kmh / 35));
+            if(this.left != null) this.left.move ( verse * WHEEL_TORQUE_FORCE * (1 - mgn / 10));
+            if(this.right != null) this.right.move( verse * -1 * WHEEL_TORQUE_FORCE * (1 - mgn / 10) );
         }
         
         public void stop()

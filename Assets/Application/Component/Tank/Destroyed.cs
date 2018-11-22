@@ -14,51 +14,51 @@ public class Destroyed : MonoBehaviour
     }
 
 	// Use this for initialization
+
+private Vector3 smokeScale;
+private Vector3[] explosionPoints;
+
 	void Start()
 	{
     
+        this.smokeScale = new Vector3(0.5f, 0.5f, 0.5f);
+        this.explosionPoints = new Vector3[] {
+            new Vector3(0.6f, -0.2f, 0.1f),
+            new Vector3(-0.1f, -0.2f, -0.6f),
+            new Vector3(-0.6f, -0.2f, -0.3f)
+        };
+
+
         foreach (Rigidbody rb in GetComponentsInChildren<Rigidbody>())
         {
             rb.drag = 1;
             rb.angularDrag = 1;
         }
-        GameObject e = (GameObject) Instantiate(
 
-            Resources.Load("Prefab/smoke"),
-            this.transform.position,
-            Quaternion.identity,
-            this.transform
-        );
-        e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        foreach( Vector3 pt in this.explosionPoints)
+        {
+            GameObject e = (GameObject) Instantiate(
 
-        e = (GameObject) Instantiate(
+                Resources.Load(Ammunition.Standard.EXPLOSION_PREFAB_PATH),
+                this.transform.position + pt,
+                Quaternion.identity,
+                this.transform
+            );
+                
+            Destroy(e, 5f);
 
-            Resources.Load("Prefab/smoke"),
-            this.transform.position + new Vector3(0.6f, -0.2f, 0.1f),
-            Quaternion.identity,
-            this.transform
-        );
-                e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
-        e = (GameObject) Instantiate(
-
-            Resources.Load("Prefab/smoke"),
-            this.transform.position + new Vector3(-0.1f, -0.2f, -0.6f),
-            Quaternion.identity,
-            this.transform
-        );
-                e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-
-        e = (GameObject) Instantiate(
-
-            Resources.Load("Prefab/smoke"),
-            this.transform.position + new Vector3(-0.6f, -0.2f, -0.3f),
-            Quaternion.identity,
-            this.transform
-        );
-                e.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+            GameObject s = (GameObject) Instantiate
+            (
+                Resources.Load("Prefab/smoke"),
+                this.transform.position + pt,
+                Quaternion.identity,
+                this.transform
+            );
+            s.transform.localScale = this.smokeScale;
 
 
+
+        } 
     }
 }
 }

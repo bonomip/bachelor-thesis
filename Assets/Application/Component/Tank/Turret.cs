@@ -6,7 +6,8 @@ namespace Application.Component.Tank
     public class Turret : MonoBehaviour
     {
         public const string NAME = "turret";
-        public static float MASS = 2.1f * Main.SCALE;
+        public static float MASS = Main.MASS;
+        public static float DRAG = Main.DRAG;
         private Main main;
         private HingeJoint joint;
         private const float VELOCITY = 20f;

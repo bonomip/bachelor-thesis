@@ -18,6 +18,10 @@ namespace Application.Controller
 
         private void Start()
         {
+            //ONLY DEBUG
+            //PlayerPrefs.SetFloat("score_map00", 1000000f);
+
+
             this.model = GameObject.Find(Application.MODEL).GetComponent<Model.Model>();
             this.camera = GameObject.Find(Application.MAIN_CAMERA);
             this.view = GameObject.Find(Application.VIEW);
@@ -39,20 +43,27 @@ namespace Application.Controller
         {
             Destroy(GameObject.Find(Application.VIEW).GetComponent<View.PressAnyKey>());
             Component.MainCamera.GoToPlayer.attach(this);
+            this.model.changeMainText("");
         }
+
+        private float startTime = 0;
 
         public void startGame(Component.MainCamera.GoToPlayer cam)
         {
             Destroy(cam);
+            this.model.changeMainText("");
             Component.MainCamera.FollowPlayer.attach();
             View.PlayerInput.attach();
+            this.startTime = Time.time;
+
         }
 
         public void lose()
         {
             Destroy(this.view.GetComponent<View.PlayerInput>());
             Destroy(this.camera.GetComponent<Component.MainCamera.FollowPlayer>());
-            StartCoroutine(reloadSceneIn(2.5f));
+            this.model.changeMainText("Defeat");
+            StartCoroutine(reloadSceneIn(3.5f));
         }
 
         IEnumerator reloadSceneIn(float time)
@@ -71,8 +82,14 @@ namespace Application.Controller
         }
 
         public void win(){
+            if( this.model.updateScore(Time.time - this.startTime) )
+                this.model.changeMainText("New record!\nTime: "+(this.model.getScore()).ToString("0.00"));
+            else
+                this.model.changeMainText("Victory!\nTime: "+(Time.time - this.startTime).ToString("0.00"));
+
             Destroy(this.view.GetComponent<View.PlayerInput>());
             Destroy(this.camera.GetComponent<Component.MainCamera.FollowPlayer>());
+
             StartCoroutine(reloadSceneIn(4.5f));
         } 
     }

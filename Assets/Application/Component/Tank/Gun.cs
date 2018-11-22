@@ -6,10 +6,10 @@ namespace Application.Component.Tank
     public class Gun : MonoBehaviour
     {
         private const string NAME = "gun";
-        public static float MASS = 0.45f * Main.SCALE;
+        public static float MASS = Main.MASS * 0.8f;
+        public static float DRAG = Main.DRAG;
 
         private Main main;
-        private new GCollider collider;
 
         private HingeJoint joint;
 
@@ -17,7 +17,7 @@ namespace Application.Component.Tank
         private const float MAX_VELOCITY = 3f;
         
         private const float SHOOT_RATE = 3f;
-        private const float RINCULO = 40f;
+        private const float RINCULO = 50f;
         private float lastShoot;
 
         private Transform hole;
@@ -42,8 +42,6 @@ namespace Application.Component.Tank
             GetComponent<Rigidbody>().mass = MASS;
             
             this.lastShoot = 0;
-
-            this.collider = GCollider.attach(this.gameObject, this, this.main);
         }
 
         public Transform getExitHole(){
@@ -89,37 +87,19 @@ namespace Application.Component.Tank
 
         private void OnDestroy()
         {
-            Destroy(this.collider);
+            Destroy(this);
         }
 
-        public class GCollider : MonoBehaviour {
-
-            private Gun gun;
-            private Main main;
-
-            public static GCollider attach(GameObject toAttach, Gun g, Main m)
-            {
-                return toAttach.AddComponent<GCollider>().link(g, m);
-            }
-
-            private GCollider link(Gun g, Main m)
-            {
-                this.gun = g;
-                this.main = m;
-                return this;
-            }
-        
-            private void OnCollisionEnter(Collision other)
-            {
-                Debug.Log("Gun hitten");
+        private void OnCollisionEnter(Collision other)
+        {
+            Debug.Log("Gun hitten");
                 
-                this.main.applyDamage(other, this.transform, 0.95f);
+            this.main.applyDamage(other, this.transform, 0.95f);
                 
-                if (other.gameObject.tag == Application.AMMUNITION_TAG && this.gun.enabled)
-                {
+            if (other.gameObject.tag == Application.AMMUNITION_TAG && this.enabled)
+            {
                     Debug.Log("Gun Destroy");
-                    this.gun.disable();
-                }
+                    //this.disable();
             }
         }
     }

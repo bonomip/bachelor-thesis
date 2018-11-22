@@ -7,8 +7,8 @@ namespace Application.Component.Tank
     {
         public static float SCALE;
 
-        public static float MASS;
-        private const float DRAG = 0.05f;
+        public static float MASS = 4f;
+        public const float DRAG = 0.05f;
         private const float ANGULAR_DRAG = 0.05f;
         private const float MAX_ANGULAR_VELOCITY = 1f;
 
@@ -26,12 +26,10 @@ namespace Application.Component.Tank
         private bool brake;
 
         private float lastVelocity;
-        private float cumulativeMass;
 
         void Start()
         {
             SCALE = this.transform.localScale.x;
-            MASS = 12.5f * SCALE;
         
             DisableCollision.avoidSelfCollision(this.GetComponentsInChildren<Collider>());
             
@@ -43,9 +41,7 @@ namespace Application.Component.Tank
             GetComponent<Rigidbody>().maxAngularVelocity = MAX_ANGULAR_VELOCITY;
 
             this.lastVelocity = 0f;
-            this.cumulativeMass = 0f;
-
-            this.calculateCumulativeMass(this.transform);
+            Debug.Log(""+this.calculateCumulativeMass(this.transform));
 
             this.brake = true;
         }
@@ -58,13 +54,18 @@ namespace Application.Component.Tank
             this.engine = Engine.attach(this.transform, this);
         }
 
-        private void calculateCumulativeMass(Transform parent)
-        {        
-            if( parent.gameObject.GetComponent<Rigidbody>() != null ) this.cumulativeMass += parent.gameObject.GetComponent<Rigidbody>().mass;
+        private float calculateCumulativeMass(Transform parent)
+        {       
+            float res = 0f;
 
-            if ( parent.transform.childCount == 0 ) return;
+            if( parent.gameObject.GetComponent<Rigidbody>() != null )
+                res += parent.gameObject.GetComponent<Rigidbody>().mass;
 
-            for (int i = 0; i < parent.transform.childCount; i++) calculateCumulativeMass(parent.GetChild(i));
+            if ( parent.transform.childCount == 0 ) return res;
+
+            for (int i = 0; i < parent.transform.childCount; i++) res += calculateCumulativeMass(parent.GetChild(i));
+
+            return res;
         }
 
         private void FixedUpdate()
@@ -72,9 +73,6 @@ namespace Application.Component.Tank
             this.lastVelocity = GetComponent<Rigidbody>().velocity.magnitude;
             if (this.brake) this.engine.stop();
         }
-
-//il problema dell cazzo ai cinglati quando si curva a velocità elevata è forse causato dal tipo di terreno della scrivania, dico questo perchè
-//sul pavimento la cosa non succede
 
         public void toBrake(){
             this.brake = true;
@@ -87,26 +85,31 @@ namespace Application.Component.Tank
             if (!keyInputs[1] && !keyInputs[3] && !keyInputs[0] && !keyInputs[2]) this.brake = true;
             else
             {
+                bool on = false;
+
                 if (keyInputs[0] && !keyInputs[2])
                 {
+                    on = true;
                     this.engine.moveForward(keyInputs[1], keyInputs[3]);
-
-                    if (keyInputs[1] && !keyInputs[3]) this.body.rotateLeft();
-                    if (!keyInputs[1] && keyInputs[3]) this.body.rotateRight();
+                    //this.body.push(this.lastVelocity, 1);
                 }
 
                 if (!keyInputs[0] && keyInputs[2])
                 {
+                    on = true;
                     this.engine.moveBack(keyInputs[1], keyInputs[3]);
-
-                    if (keyInputs[1] && !keyInputs[3]) this.body.rotateLeft();
-                    if (!keyInputs[1] && keyInputs[3]) this.body.rotateRight();
+                    //this.body.push(this.lastVelocity, 1);
                 }
 
-                if (!keyInputs[0] && !keyInputs[2])
+                if(on){
+                    if (keyInputs[1] && !keyInputs[3]) this.body.rotate(this.lastVelocity, -1); // soft rotation left
+                    if (!keyInputs[1] && keyInputs[3]) this.body.rotate(this.lastVelocity, 1); // soft rotation right
+                }
+
+                if (!on) //if the player is not input W or S (forward, back) do an hard rotation
                 {
-                    if (keyInputs[1] && !keyInputs[3]) this.engine.rotateLeft(this.body.kmh());
-                    if (!keyInputs[1] && keyInputs[3]) this.engine.rotateRight(this.body.kmh());
+                    if (keyInputs[1] && !keyInputs[3]) this.engine.rotate(this.lastVelocity, -1); //left
+                    if (!keyInputs[1] && keyInputs[3]) this.engine.rotate(this.lastVelocity, +1); //right
                 }
             }
             
@@ -123,19 +126,17 @@ namespace Application.Component.Tank
         {      
             if (this.healt <= 0) return;
 
-            // GENERIC COLLISION
-            this.cumulativeMass = 0;
-            this.calculateCumulativeMass(this.transform);
-
-            Debug.LogError("Km/h:" + this.lastVelocity * 3.6f);
-            Debug.LogError("Impact force:"+this.lastVelocity * ( other.rigidbody != null ? other.rigidbody.mass : 1000 ) / this.cumulativeMass);
-            
-            // AMMUNITION COLLISION DAMAGE CALCULATIONS
             if (other.gameObject.tag == Application.AMMUNITION_TAG)
             {
                 other.gameObject.GetComponent<Ammunition.Ammunition>().CreateFire(other.contacts[0].point, hitten);
                 this.healt -= other.gameObject.GetComponent<Ammunition.Ammunition>().damage * (1 - armour);
                 Debug.LogError(healt);
+            } else {
+                // GENERIC COLLISION
+                // this.cumulativeMass = 0;
+                //this.calculateCumulativeMass(this.transform);
+                //Debug.LogError("magnitude" + this.lastVelocity);
+                Debug.LogError("Impact force:"+other.impactForceSum.magnitude);
             }
 
             if (this.healt <= 350 && !this.healtIsLow) { Smoke.Create(this.turret.transform.Find(SMOKE_HOLE).position, this.turret.transform.Find(SMOKE_HOLE)); this.healtIsLow = true; }
@@ -145,7 +146,6 @@ namespace Application.Component.Tank
 
         public void DestroyTank()
         {
-            
             Destroy(this.body);
             Destroy(this.turret);
             Destroy(this.gun);
@@ -158,10 +158,10 @@ namespace Application.Component.Tank
         public void setColliderStatus(bool active, Transform parent){
             foreach(Collider c in parent.gameObject.GetComponents<Collider>())
                 c.enabled = active;
-            foreach(Rigidbody r in parent.gameObject.GetComponents<Rigidbody>())
-                r.velocity = Vector3.zero;
-            
-
+            foreach(Rigidbody r in parent.gameObject.GetComponents<Rigidbody>()){
+                r.useGravity = active;
+                r.isKinematic = !active;
+            }
             for (int i = 0; i < parent.transform.childCount; i++) setColliderStatus(active, parent.GetChild(i));
 
         }

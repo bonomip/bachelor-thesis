@@ -7,7 +7,7 @@ namespace Application.Component.Ammunition
     {
         private const string GUN_FIRE_PREFAB_PATH = "Prefab/gun_fire_standard";
         private const string AMMO_PREFAB_PATH = "Prefab/ammo_standard";
-        private const string EXPLOSION_PREFAB_PATH = "Prefab/explosion_standard";
+        public const string EXPLOSION_PREFAB_PATH = "Prefab/explosion_standard";
         private const string FIRE_PREFAB_PATH = "Prefab/fire_standard";
 
         private const float VELOCITY = 15f;
@@ -16,8 +16,8 @@ namespace Application.Component.Ammunition
         {
             this.damage = 1000f;
             this.explosionPower = 25f;
-            this.explosionRadius = 8f;
-            this.explosionUpwards = 0.0f;
+            this.explosionRadius = 6f;
+            this.explosionUpwards = 0.1f;
         }
 
         public static GameObject Shoot(Vector3 exit_hole_position, Vector3 direction, Transform parent)
@@ -40,7 +40,7 @@ namespace Application.Component.Ammunition
             Destroy(p, 3f);
         }
 
-        private static GameObject CreateAmmo(Vector3 position, Vector3 normal)
+        public static GameObject CreateAmmo(Vector3 position, Vector3 normal)
         {
             GameObject a = (GameObject)Instantiate(
 
@@ -59,7 +59,7 @@ namespace Application.Component.Ammunition
             return a;
         }
 
-        private void CreateExplosion(Vector3 position)
+        public void CreateExplosion(Vector3 position)
         {
             GameObject e = (GameObject) Instantiate(
 
@@ -72,11 +72,11 @@ namespace Application.Component.Ammunition
             Destroy(e, 5f);
 
             ArrayList list = new ArrayList();
-            foreach (Collider hit in Physics.OverlapSphere(position, this.explosionRadius))
+            foreach (Collider hit in Physics.OverlapSphere(position, explosionRadius))
             {
                 if (hit.attachedRigidbody != null && !list.Contains(hit.attachedRigidbody))
                 {
-                    hit.attachedRigidbody.AddExplosionForce(this.explosionPower, position, this.explosionRadius, this.explosionUpwards, ForceMode.Impulse);
+                    hit.attachedRigidbody.AddExplosionForce(explosionPower, position, explosionRadius, explosionUpwards, ForceMode.Impulse);
                     list.Add(hit.attachedRigidbody);
                 }
             }   
@@ -97,7 +97,7 @@ namespace Application.Component.Ammunition
         
         private void OnCollisionEnter(Collision collision)
         {
-            this.CreateExplosion(collision.contacts[0].point);
+            CreateExplosion(collision.contacts[0].point);
             Destroy(this.gameObject);
         }
     }

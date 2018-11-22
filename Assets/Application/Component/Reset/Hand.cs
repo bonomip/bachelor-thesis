@@ -42,7 +42,6 @@ namespace Application.Component.Reset
             this.p2 = this.player.position;
             this.v1 = this.player.GetComponent<Rigidbody>().velocity;
             this.step1 = this.step2 = this.step3 = this.step4 = true;
-
         }
 
         private void FixedUpdate()
@@ -66,10 +65,11 @@ namespace Application.Component.Reset
             }
 
             if(step3) {
-                this.transform.position = Vector3.Lerp(this.transform.position, this.p2 + new Vector3(0f, 0.5f, 0f), 0.02f);
+                this.transform.position = Vector3.Lerp(this.transform.position, this.p2 + new Vector3(0f, 0.2f, 0f), 0.02f);
                 this.player.position = this.transform.position;
                 this.rotate();
-                if (Vector3.Distance(this.transform.position, this.p2 + new Vector3(0f, 0.5f, 0f)) < 0.2f) {
+                if (Vector3.Distance(this.transform.position, this.p2 + new Vector3(0f, 0.2f, 0f)) < 0.3f) {
+                    this.player.position = this.transform.position;
                     this.view.resetComplete();
                     this.step3 = false;
                     this.p.setColliderStatus(true, this.player);
